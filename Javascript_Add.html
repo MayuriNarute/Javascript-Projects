@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Math Operations | Javascript</title>
+<style>
+body {
+	background-color: cyan;
+	font-family: verdana;
+}
+input
+{
+  border:2px solid black;
+}
+.f
+{
+	width:90px;
+}
+#g:hover
+{
+
+	background-color: pink;
+	
+}
+</style>
+</head>
+<body>
+	<h2>
+		<center>
+			<h2><u>*Calculator*</u></h2>
+			<br><br>
+			Number 1 : <input style="font-size: 25px" type="number" id="no1"/>
+			<br> <br> <br> Number 2 : <input
+				style="font-size: 25px" type="number" id="no2"/> <br>
+		
+		<br>
+		<br>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#myNavbar">
+						<span class="icon-bar"></span> <span class="navbar-toggler-icon"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+
+				</div>
+
+
+
+				<ul class="nav navbar-nav ">
+
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<button style="font-size: 23px" id="g" align="center" onclick="adddata()"
+						>Addition</button>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<button style="font-size: 23px" id="g" align="center" onclick="subdata()"
+						>Subtraction</button>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<button style="font-size: 23px" id="g" align="center" onclick="multdata()"
+						>Multiplication</button>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<button style="font-size: 23px" id="g" align="center" onclick="divdata()"
+						>Division</button><br>
+						&nbsp&nbsp&nbsp
+						<input style="font-size: 23px" width=20px class="f"
+						id="add"/>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					
+						<input style="font-size: 23px" class="f"
+						id="sub"/>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					
+						<input style="font-size: 23px" class="f"
+						id="mul"/>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					
+						<input style="font-size: 23px" class="f"
+						id="div"/>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				</ul>
+					</center>
+	</h2>
+
+	</div>
+	</div>
+	</nav>
+
+
+	<script>
+				function adddata() {
+					var n1 = Number(document.getElementById("no1").value);
+					var n2 = Number(document.getElementById("no2").value);
+					
+					var addition=n1 +n2;
+						document.getElementById("add").value=addition;
+				}
+				function subdata() {
+					var n1 = Number(document.getElementById("no1").value);
+					var n2 = Number(document.getElementById("no2").value);
+					var subt=n1-n2;
+					document.getElementById("sub").value=subt;
+
+				}
+				function multdata() {
+					var n1 = Number(document.getElementById("no1").value);
+					var n2 = Number(document.getElementById("no2").value);
+					var mult=n1*n2;
+					document.getElementById("mul").value=mult;
+				}
+				function divdata() {
+					var n1 = Number(document.getElementById("no1").value);
+					var n2 = Number(document.getElementById("no2").value);
+					var divs=n1/n2;
+					document.getElementById("div").value=divs;
+				}
+			</script>
+</body>
+</html>

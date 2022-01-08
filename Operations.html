@@ -1,0 +1,206 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+   
+    <style>
+        body {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <title>Number Operations</title>
+    <h2 align="center"><u>*Calculator*</u></h2><br>
+    <form>
+    <table align="center" bgcolor="oldlace" border="3px solid black" height="420" width="580">
+        <tr style="background-color:LightCyan;">
+            <td style="font-size:30px">
+                <center><b>Logic Operations -</b>
+            </td>
+        </tr>
+
+        <td style="font-size:25px">
+            Number 1 : <input style="font-size: 25px" type="number" placeholder="Enter Number 1 " id="no1" "required"></input>
+            <br> <br>
+
+            </center>
+
+            <center>
+                <select style="font-size: 20px" id="c" onchange="calculate()">
+                    <option style="font-size: 20px">Select Operation</option>
+                    <option value="fact">Factor</option>
+                    <option value="facto">Factorial</option>
+                    <option value="prime">Prime Number</option>
+                    <option value="revd">Reverse Number</option>
+                    <option value="sumofd">Sum Of Digit</option>
+                    <option value="tab">Table</option>
+                    <option value="febo">Febonacci</option>
+                </select>
+
+                <p id="factor"></p>
+                <p id="factorial"></p>
+                <p id="pr"></p>
+                <p id="reverse"></p>
+                <p id="sum"></p>
+                <p id="table"></p>
+                <p id="febonnaci"></p>
+            </center>
+        </td>
+
+    </table>
+</form>
+    <br><br>
+    <table align="center" bgcolor="oldlace" border="3px solid black" height="420" width="580">
+        <tr style="background-color:LightCyan;">
+            <td style="font-size:30px">
+                <center><b>Arithmetic Operations -</b></center>
+            </td>
+        </tr>
+
+        <td style="font-size:25px">
+            Number 1: <input style="font-size: 25px" type="number" placeholder="Enter Number 1" id="no2"  />
+            <br> <br>
+            Number 2: <input style="font-size: 25px" type="number" placeholder="Enter Number 2" id="no3" />
+            <br>
+            <br>
+
+
+            <center>
+                <select style="font-size: 20px" id="h" onchange="Calculation()">
+                    <option>Select Operation</option>
+                    <option value="ADD">Addition</option>
+                    <option value="SUB">Subtraction</option>
+                    <option value="MUL">Multiplication</option>
+                    <option value="DIV">Division</option>
+                    <option value="baspo">Base & Power</option>
+                </select>
+                <p id="add"></p>
+                <p id="sub"></p>
+                <p id="div"></p>
+                <p id="mul"></p>
+                <p id="bp"></p>
+            </center>
+        </td>
+    </table>
+</body>
+<script>
+    function calculate() {
+        var n1 = Number(document.getElementById("no1").value);
+        var f, remainder;
+        var i, j = 1, f, result;
+        var text = "";
+        var fl = 1;
+        var rev = 0;
+        var c = document.getElementById("c").value;
+        if (c == "facto") {
+
+            f = 1;
+            for (i = 1; i <= n1; i++) {
+                f = f * i;
+            }
+            document.getElementById("factorial").innerHTML = "The factorial of the number " + n1 + " is : " + f;
+        }
+        else if (c == "fact") {//error
+            var text;
+            for (i = 1; i <= n1 / 2; i++) {
+                if (n1 % i == 0) {
+                    text += i + "<br>";
+                    document.getElementById("factor").innerHTML = "The factors of the number " + n1 + " are : " + text;
+                }
+
+            }
+        }
+        else if (c == "prime") {
+            for (i = 2; i <= n1 / 2; i++) {
+                if (n1 % i == 0) {
+                    fl = 0;
+                    break;
+                }
+            }
+            if (fl == 1) {
+                document.getElementById("pr").innerHTML = "Yes ,This is Prime Number";
+            }
+            else {
+                document.getElementById("pr").innerHTML = "No ,This is Not a Prime Number";
+            }
+        }
+        else if (c == "revd") {
+            var on = n1;
+            while (n1 != 0) {
+
+                remainder = n1 % 10;
+                rev = rev * 10 + remainder;
+                n1 = Math.floor(n1 / 10);
+            }
+            document.getElementById("reverse").innerHTML = "The Reverse number of " + on + " is : " + rev;
+        }
+        else if (c == "sumofd") {
+            var t = n1;
+            var sum = 0;
+            while (t != 0) {
+                remainder = t % 10;
+                sum = sum + remainder;
+                t = t / 10;
+            }
+            document.getElementById("sum").innerHTML = "The Sum Of Digits of " + n1 + " is : " + parseInt(sum);
+        }
+        else if (c == 'tab') {
+            for (i = 1; i <= 10; i++) {
+                var t;
+                t = n1 * i;
+                text += +n1 + " * " + i + " = " + t + "<br>";
+            }
+            document.getElementById("table").innerHTML = text;
+        }
+        else if (c == "febo") {
+            var t1 = 0, t2 = 1, nextTerm;
+
+            for (i = 1; i <= n1; i++) {
+                text += "&nbsp&nbsp&nbsp " + t1;
+                nextTerm = t1 + t2;
+                t1 = t2;
+                t2 = nextTerm;
+            }
+            document.getElementById("febonnaci").innerHTML = "Fibonacci-Series : " + text;
+        }
+    }
+    function Calculation() {
+        var n2 = Number(document.getElementById("no2").value);
+        var n3 = Number(document.getElementById("no3").value);
+        var h = document.getElementById("h").value;
+
+        if (h == 'ADD') {
+            var d = parseInt(n2) + parseInt(n3);
+            document.getElementById("add").innerHTML = "Addition is : " + d;
+            // alert('Add Called');
+        }
+        else if (h == 'SUB') {
+            var d = parseInt(n2) - parseInt(n3);
+            document.getElementById("sub").innerHTML = "Subtraction is : "+d;
+            // alert('Sub Called');
+        }
+        else if (h == 'MUL') {
+            var d = parseInt(n2) * parseInt(n3);
+            document.getElementById("mul").innerHTML ="Multiplication is : "+d;
+            // alert('Mul Called');
+        }
+        else if (h == 'DIV') {
+            var d = parseInt(n2) / parseInt(n3);
+            document.getElementById("div").innerHTML = "Division is : "+d;
+            // alert('Div Called');
+        }
+        else if (h == "baspo") {
+            var result =1;
+            while (n3 != 0) {
+                result *= n2;
+                --n3;
+            }
+            document.getElementById("bp").innerHTML ="Result is :"+ result;
+        }
+
+
+    }
+</script>
+
+</html>
